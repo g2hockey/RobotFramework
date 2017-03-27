@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170325 05:48:34.390" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="C:\Python_tests\Selenium_tests\Udemy\RobotFramework\Selenium_test\tests\logintests.robot" id="s1" name="Logintests">
+<kw type="setup" name="Setup Testsuite" library="Common">
+<kw name="Open Webpage" library="Common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${COMMON_Browser}</arg>
+</arguments>
+<msg timestamp="20170325 05:48:34.684" level="INFO">Opening browser 'firefox' to base url 'about:blank'</msg>
+<status status="PASS" endtime="20170325 05:48:42.109" starttime="20170325 05:48:34.684"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170325 05:48:42.161" starttime="20170325 05:48:42.110"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${COMMON_TEST_URL}</arg>
+</arguments>
+<msg timestamp="20170325 05:48:42.163" level="INFO">Opening url 'https://letskodeit.teachable.com'</msg>
+<status status="PASS" endtime="20170325 05:49:07.101" starttime="20170325 05:48:42.162"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:07.101" starttime="20170325 05:48:34.684"></status>
+</kw>
+<kw name="Get Webdriver Instance" library="Util">
+<assign>
+<var>${WEBDRIVER}</var>
+</assign>
+<msg timestamp="20170325 05:49:07.102" level="INFO">${WEBDRIVER} = &lt;selenium.webdriver.firefox.webdriver.WebDriver (session="cc579421-fa38-436f-987d-9d7a580bbdf7")&gt;</msg>
+<status status="PASS" endtime="20170325 05:49:07.102" starttime="20170325 05:49:07.102"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${WEBDRIVER}</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.104" level="INFO">${WEBDRIVER} = &lt;selenium.webdriver.firefox.webdriver.WebDriver (session="cc579421-fa38-436f-987d-9d7a580bbdf7")&gt;</msg>
+<status status="PASS" endtime="20170325 05:49:07.104" starttime="20170325 05:49:07.103"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>webdriver: ${webdriver}</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.107" level="INFO">webdriver: &lt;selenium.webdriver.firefox.webdriver.WebDriver (session="cc579421-fa38-436f-987d-9d7a580bbdf7")&gt;</msg>
+<status status="PASS" endtime="20170325 05:49:07.108" starttime="20170325 05:49:07.104"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:07.108" starttime="20170325 05:48:34.683"></status>
+</kw>
+<test id="s1-t1" name="Set Webdriver">
+<kw type="setup" name="Setup Test" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test setup</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.112" level="INFO">Test setup</msg>
+<status status="PASS" endtime="20170325 05:49:07.112" starttime="20170325 05:49:07.111"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:07.112" starttime="20170325 05:49:07.111"></status>
+</kw>
+<kw name="Set Driver" library="App01">
+<arguments>
+<arg>${WEBDRIVER}</arg>
+</arguments>
+<kw name="Set Driver" library="Login_Page_py">
+<arguments>
+<arg>${driver}</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.135" level="INFO">login page: Home | Let's Kode It</msg>
+<status status="PASS" endtime="20170325 05:49:07.135" starttime="20170325 05:49:07.114"></status>
+</kw>
+<kw name="Set Driver" library="Navigation_Page_py">
+<arguments>
+<arg>${driver}</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.156" level="INFO">navigation page: Home | Let's Kode It</msg>
+<status status="PASS" endtime="20170325 05:49:07.156" starttime="20170325 05:49:07.136"></status>
+</kw>
+<kw name="Set Driver" library="Courses_Page_py">
+<arguments>
+<arg>${driver}</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.178" level="INFO">courses page: Home | Let's Kode It</msg>
+<status status="PASS" endtime="20170325 05:49:07.178" starttime="20170325 05:49:07.156"></status>
+</kw>
+<kw name="Set Driver" library="Register_Page_py">
+<arguments>
+<arg>${driver}</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.193" level="INFO">Register page: Home | Let's Kode It</msg>
+<status status="PASS" endtime="20170325 05:49:07.193" starttime="20170325 05:49:07.179"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:07.194" starttime="20170325 05:49:07.113"></status>
+</kw>
+<kw type="teardown" name="Teardown Test" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test teardown</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.195" level="INFO">Test teardown</msg>
+<status status="PASS" endtime="20170325 05:49:07.195" starttime="20170325 05:49:07.195"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:07.195" starttime="20170325 05:49:07.194"></status>
+</kw>
+<tags>
+<tag>test</tag>
+</tags>
+<status status="PASS" endtime="20170325 05:49:07.195" critical="yes" starttime="20170325 05:49:07.108"></status>
+</test>
+<test id="s1-t2" name="Test method">
+<kw type="setup" name="Setup Test" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test setup</arg>
+</arguments>
+<msg timestamp="20170325 05:49:07.199" level="INFO">Test setup</msg>
+<status status="PASS" endtime="20170325 05:49:07.200" starttime="20170325 05:49:07.199"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:07.200" starttime="20170325 05:49:07.198"></status>
+</kw>
+<kw name="Test method7" library="App01">
+<kw name="Login" library="Login_Page_py">
+<arguments>
+<arg>test@email.com</arg>
+<arg>abcabc</arg>
+</arguments>
+<msg timestamp="20170325 05:49:16.243" level="INFO">Waiting for maximum :: 15 :: seconds for element to be visible
+Element appeared on the web page: Login
+Element Found with locator: Login and  locatorType: partial_link
+Clicked on element with locator: Login locatorType: partial_link
+Waiting for maximum :: 15 :: seconds for element to be visible
+Element appeared on the web page: user_email
+Element Found with locator: user_email and  locatorType: id
+Sent data on element with locator: user_email locatorType: id
+Element Found with locator: user_password and  locatorType: id
+Sent data on element with locator: user_password locatorType: id
+Element Found with locator: commit and  locatorType: name
+Clicked on element with locator: commit locatorType: name</msg>
+<status status="PASS" endtime="20170325 05:49:16.243" starttime="20170325 05:49:07.201"></status>
+</kw>
+<kw name="Search Author" library="Courses_Page_py">
+<arguments>
+<arg>Let's Kode It</arg>
+</arguments>
+<msg timestamp="20170325 05:49:18.384" level="INFO">Element Found with locator: //div[@class='row search']//div[contains(text(),'Author')]//following-sibling::div//button and  locatorType: xpath
+Clicked on element with locator: //div[@class='row search']//div[contains(text(),'Author')]//following-sibling::div//button locatorType: xpath
+Waiting for maximum :: 15 :: seconds for element to be visible
+Element appeared on the web page: //div[contains(text(),'Author')]//following-sibling::div//a[contains(text(),"Let's Kode It")]
+Clicked on element with locator:  locatorType: id</msg>
+<status status="PASS" endtime="20170325 05:49:18.384" starttime="20170325 05:49:16.244"></status>
+</kw>
+<kw name="Search Category" library="Courses_Page_py">
+<arguments>
+<arg>Software Testing</arg>
+</arguments>
+<msg timestamp="20170325 05:49:20.504" level="INFO">Element Found with locator: //div[@class='row search']//div[contains(text(),'Category')]//following-sibling::div//button and  locatorType: xpath
+Clicked on element with locator: //div[@class='row search']//div[contains(text(),'Category')]//following-sibling::div//button locatorType: xpath
+Waiting for maximum :: 15 :: seconds for element to be visible
+Element appeared on the web page: //div[contains(text(),'Category')]//following-sibling::div//a[contains(text(),"Software Testing")]
+Clicked on element with locator:  locatorType: id</msg>
+<status status="PASS" endtime="20170325 05:49:20.504" starttime="20170325 05:49:18.384"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:20.504" starttime="20170325 05:49:07.201"></status>
+</kw>
+<kw type="teardown" name="Teardown Test" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test teardown</arg>
+</arguments>
+<msg timestamp="20170325 05:49:20.506" level="INFO">Test teardown</msg>
+<status status="PASS" endtime="20170325 05:49:20.507" starttime="20170325 05:49:20.506"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:20.507" starttime="20170325 05:49:20.505"></status>
+</kw>
+<tags>
+<tag>test</tag>
+</tags>
+<status status="PASS" endtime="20170325 05:49:20.507" critical="yes" starttime="20170325 05:49:07.197"></status>
+</test>
+<test id="s1-t3" name="Logout website">
+<kw type="setup" name="Setup Test" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test setup</arg>
+</arguments>
+<msg timestamp="20170325 05:49:20.512" level="INFO">Test setup</msg>
+<status status="PASS" endtime="20170325 05:49:20.512" starttime="20170325 05:49:20.512"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:20.512" starttime="20170325 05:49:20.511"></status>
+</kw>
+<kw name="Logout" library="App01">
+<kw name="Logout" library="Navigation_Page_py">
+<msg timestamp="20170325 05:49:23.729" level="INFO">Element Found with locator: //span[text()='User Settings'] and  locatorType: xpath
+Element present with locator: //span[text()='User Settings'] locatorType: xpath
+Element Found with locator: //span[text()='User Settings'] and  locatorType: xpath
+Clicked on element with locator: //span[text()='User Settings'] locatorType: xpath
+Waiting for maximum :: 15 :: seconds for element to be visible
+Element appeared on the web page: Log out
+Clicked on element with locator:  locatorType: id</msg>
+<status status="PASS" endtime="20170325 05:49:23.729" starttime="20170325 05:49:20.514"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:23.729" starttime="20170325 05:49:20.513"></status>
+</kw>
+<kw type="teardown" name="Teardown Test" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test teardown</arg>
+</arguments>
+<msg timestamp="20170325 05:49:23.731" level="INFO">Test teardown</msg>
+<status status="PASS" endtime="20170325 05:49:23.731" starttime="20170325 05:49:23.730"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:23.731" starttime="20170325 05:49:23.730"></status>
+</kw>
+<tags>
+<tag>test</tag>
+</tags>
+<status status="PASS" endtime="20170325 05:49:23.731" critical="yes" starttime="20170325 05:49:20.509"></status>
+</test>
+<kw type="teardown" name="Teardown Testsuite" library="Common">
+<kw name="Close webpage" library="Common">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20170325 05:49:23.904" starttime="20170325 05:49:23.734"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:23.905" starttime="20170325 05:49:23.734"></status>
+</kw>
+<status status="PASS" endtime="20170325 05:49:23.905" starttime="20170325 05:49:23.733"></status>
+</kw>
+<doc>Login tests</doc>
+<status status="PASS" endtime="20170325 05:49:23.905" starttime="20170325 05:48:34.394"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="3">test</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Logintests" pass="3">Logintests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
