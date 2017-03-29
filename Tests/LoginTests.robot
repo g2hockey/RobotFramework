@@ -12,6 +12,7 @@ Suite Teardown  Common.Teardown Testsuite    #Run once after all tests
 
 *** Variables ***
 ${sample}
+${sample3}
 ${sample2}
 
 *** Test Cases ***
