@@ -50,6 +50,8 @@ Feature1a test
 
 Feature1b test
     log         feature1b
+Feature2a test
+    log         feature2a
 
 Feature1c test
     log         feature1c
