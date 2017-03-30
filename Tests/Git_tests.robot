@@ -53,6 +53,8 @@ Feature1b test
 Feature2a test
     log         feature2a
 
+Feature2b test
+    log         feature2b
 *** Keywords ***
 
 
