@@ -48,6 +48,9 @@ Feature1 test
 Feature1a test
     log         feature1a
 
+Feature1b test
+    log         feature1b
+
 *** Keywords ***
 
 
