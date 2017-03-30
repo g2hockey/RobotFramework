@@ -45,6 +45,11 @@ Test method
 Feature2 test
     log         feature2
 
+Feature1a test
+    log         feature1a
+
+Feature1b test
+    log         feature1b
 Feature2a test
     log         feature2a
 
