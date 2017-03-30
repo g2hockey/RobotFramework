@@ -45,6 +45,8 @@ Test method
 Feature2 test
     log         feature2
 
+Feature1a test
+    log         feature1a
 
 *** Keywords ***
 
