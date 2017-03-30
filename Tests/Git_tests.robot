@@ -42,8 +42,8 @@ Test method
     App01.Test Method5
     App01.Test Method6
 
-Feature2 test
-    log         feature2
+Feature1 test
+    log         feature1
 
 
 *** Keywords ***
