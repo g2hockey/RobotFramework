@@ -13,7 +13,8 @@ import random, string
 #import Utilities.custom_logger as cl
 import logging
 from robot.libraries.BuiltIn import BuiltIn
-
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 class Util(object):
 
@@ -133,4 +134,7 @@ class Util(object):
 
     def get_webdriver_instance(self):
         se2lib = BuiltIn().get_library_instance('Selenium2Library')
-        return se2lib._current_browser()
+        driver = se2lib._current_browser()
+        return driver
+
+

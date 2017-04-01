@@ -1,21 +1,20 @@
 *** Settings ***
 Documentation    Keywords for Common methods
 Library  Selenium2Library
-Library     ../Application/conftest.py
-Library     ../Utilities/Util.py
+Library     ../Base/WebDriverFactory.py
 
 
 *** Variables ***
-${COMMON_Browser}      firefox          #chrome       #Ie       #firefox
+${COMMON_Browser}      firefox          #chrome       #iexplorer       #firefox
 ${COMMON_TEST_URL}     https://letskodeit.teachable.com
-${WEBDRIVER}                            #Global webdriver object to pass into Page Object classes
+${COMMON_WEBDRIVER}                            #Global webdriver object to pass into Page Object classes
 
 *** Keywords ***
 Setup Testsuite
     Open Webpage
-    ${WEBDRIVER}=   Util.Get webdriver instance
-    set suite variable      ${WEBDRIVER}
-    log             webdriver: ${webdriver}
+    ${COMMON_WEBDRIVER}=   WebDriverFactory.getWebDriverInstance
+    set suite variable      ${COMMON_WEBDRIVER}
+    log             webdriver: ${COMMON_WEBDRIVER}
 
 
 Teardown Testsuite
@@ -28,12 +27,11 @@ Teardown Test
     log     Test teardown
 
 Open Webpage
-    open browser    about:blank   ${COMMON_Browser}
-    maximize browser window
-    go to   ${COMMON_TEST_URL}
+    WebDriverFactory.openBrowser        ${COMMON_Browser}
+    WebDriverFactory.gotoURL            ${COMMON_TEST_URL}
 
 Close webpage
-    close browser
+    WebDriverFactory.closeBrowser
 
 
 

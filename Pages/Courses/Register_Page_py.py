@@ -24,7 +24,6 @@ class Register_Page_py(BasePage):
 
     def setDriver(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(5)
         print("Register page: " + self.driver.title)
 
 

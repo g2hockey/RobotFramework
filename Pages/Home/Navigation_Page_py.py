@@ -13,7 +13,7 @@ class Navigation_Page_py(BasePage):
     # Locators
     _my_courses = "My Courses"
     _practice = "Practice"
-    _usericon = "//span[text()='User Settings']"
+    _usericon = "//span[text()='User Settings']//parent::a"
     _all_courses_link = "All Courses"
     _logout = "Log out"
 
@@ -24,7 +24,6 @@ class Navigation_Page_py(BasePage):
 
     def setDriver(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(5)
         print("navigation page: " + self.driver.title)
 
     def navigateToMyCourses(self):

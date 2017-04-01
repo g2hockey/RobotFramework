@@ -8,20 +8,18 @@ Example:
     wdf = WebDriverFactory(browser)
     wdf.getWebDriverInstance()
 """
+import os
+import time
 import traceback
 from selenium import webdriver
-import os
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.chrome.options import Options
 
 class WebDriverFactory():
 
-    def __init__(self, browser):
-        """
-        Inits WebDriverFactory class
 
-        Returns:
-            None
-        """
-        self.browser = browser
     """
         Set chrome driver and iexplorer environment based on OS
 
@@ -31,37 +29,78 @@ class WebDriverFactory():
 
         PREFERRED: Set the path on the machine where browser will be executed
     """
+    driver = ''
+    baseURL = 'about:blank'
+
+    def openBrowser(self, browser):
+        if browser == "iexplorer":
+            # Set ie driver
+            # driverLocation = "C:\\Python27\\IEDriverServer.exe"
+            # os.environ["webdriver.ie.driver"] = driverLocation
+            # driver = webdriver.Ie(driverLocation)
+            self.driver = webdriver.Ie()
+
+        elif browser == "firefox":
+            profile = self.getFireFoxProfile()
+            self.driver = webdriver.Firefox()
+
+        elif browser == "chrome":
+            # Set chrome driver
+            # driverLocation = "C:\\Python27\\chromedriver.exe"
+            # os.environ["webdriver.chrome.driver"] = driverLocation
+            # driver = webdriver.Chrome(driverLocation)
+            chrome_options = self.getBrowserOptions(browser)
+            self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        else:
+            profile = self.getFireFoxProfile()
+            self.driver = webdriver.Firefox()
+
+        # Setting Driver Implicit Time out for An Element
+        self.driver.implicitly_wait(5)
+        # Maximize the window
+        self.driver.maximize_window()
+        self.driver.get(self.baseURL)
+
+
+
+    def gotoURL(self,url):
+        self.driver.get(url)
 
     def getWebDriverInstance(self):
-        # type: () -> object
-        """
-       Get WebDriver Instance based on the browser configuration
+        return self.driver
 
-        Returns:
-            'WebDriver Instance'
-        """
-        baseURL = "https://letskodeit.teachable.com/"
-        if self.browser == "iexplorer":
-            # Set ie driver
-            driverLocation = "C:\\Python27\\IEDriverServer.exe"
-            os.environ["webdriver.ie.driver"] = driverLocation
-            driver = webdriver.Ie(driverLocation)
+    def getBrowserOptions(self,browser):
+        options = Options()
+        if browser == "chrome":
 
-        elif self.browser == "firefox":
-            driver = webdriver.Firefox()
-        elif self.browser == "chrome":
-            # Set chrome driver
-            driverLocation = "C:\\Python27\\chromedriver.exe"
-            os.environ["webdriver.chrome.driver"] = driverLocation
-            driver = webdriver.Chrome(driverLocation)
-        else:
-            driver = webdriver.Firefox()
-        # Setting Driver Implicit Time out for An Element
-        driver.implicitly_wait(5)
-        # Maximize the window
-        driver.maximize_window()
-        # Loading browser with App URL
-        driver.get(baseURL)
+            options.add_experimental_option('prefs', {
+                'credentials_enable_service': False,
+                'profile': {
+                    'password_manager_enabled': False
+                }
+            })
+
+        return options
+
+    def getFireFoxProfile(self):
+        profile = webdriver.FirefoxProfile()
+        profile.set_preference('app.update.auto', False)
+        profile.set_preference('app.update.enabled', False)
+        profile.set_preference('app.update.silent', True)
+        # profile.set_preference('app.update.service.enabled', False)
+        # profile.set_preference('app.update.staging.enabled', False)
+
+        return profile
+
+    def dismissFireFoxStartupDialog(self, driver):
+        #browserName = driver.capabilities["browserName"]
+        browserName = driver.name
+        print("Browser: " + browserName)
+        if browserName == "firefox":
+            actions = ActionChains(driver)
+            actions.send_keys(Keys.ALT + 'n')
+            #actions.perform()
 
 
-        return driver
+    def closeBrowser(self):
+        self.driver.quit()

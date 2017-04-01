@@ -1,10 +1,6 @@
 import time
-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from robot.libraries.BuiltIn import BuiltIn
 from Base.BasePage import BasePage
-from Application.conftest   import conftest
+
 
 
 class Login_Page_py(BasePage):
@@ -17,7 +13,6 @@ class Login_Page_py(BasePage):
     _email_field = "user_email"
     _password_field = "user_password"
     _login_button = "commit"
-    _usericon = "//span[text()='User Settings']"
     _invalidinput = "//*[@id='new_user']//div[contains(text(),'Invalid email or password')]"
 
 

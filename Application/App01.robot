@@ -8,6 +8,7 @@ Library         String
 Library         Collections
 Library         ../Pages/Home/Login_Page_py.py
 Library         ../Pages/Home/Navigation_Page_py.py
+Library         ../Pages/Home/Practice_Page_py.py
 Library         ../Pages/Courses/Courses_Page_py.py
 Library         ../Pages/Courses/Register_Page_py.py
 Library         ../Utilities/Read_Data.py
@@ -41,6 +42,7 @@ Set Driver
     Navigation_Page_py.setDriver    ${driver}
     Courses_Page_py.setDriver       ${driver}
     Register_Page_py.setDriver      ${driver}
+    Practice_Page_py.setDriver      ${driver}
 
 
 Test method2
@@ -99,9 +101,22 @@ Test method6
 
 
 Test method7
-        Login_Page_py.login                 test@email.com      abcabc
         Courses_Page_py.searchAuthor        Let's Kode It
         Courses_Page_py.searchCategory       Software Testing
+
+Test method8
+        Navigation_Page_py.navigateToPractice
+#        Practice_Page_py.selectRadioBtn
+#        Practice_Page_py.selectDropBox      Benz
+#        Practice_Page_py.selectCheckbox
+#        Practice_Page_py.switchWindow
+#        Practice_Page_py.switchTab
+#        Practice_Page_py.switchAlert
+#        Practice_Page_py.showTable
+         Practice_Page_py.mousehover2
+
+Login
+        Login_Page_py.login                 test@email.com      abcabc
 
 Logout
         Navigation_Page_py.logout

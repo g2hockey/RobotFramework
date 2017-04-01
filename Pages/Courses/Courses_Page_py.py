@@ -1,5 +1,4 @@
 import time
-
 from Base.BasePage import BasePage
 
 
@@ -9,7 +8,6 @@ class Courses_Page_py(BasePage):
     driver = None
 
     # Locators
-    _usericon = "//span[text()='User Settings']"
     _searchcourses_field = "search-courses"
     _course_link = "//div[contains(@class,'course-listing-title') and contains(text(),'{0}')]"
     _enroll_button = "enroll-button"
@@ -27,7 +25,6 @@ class Courses_Page_py(BasePage):
 
     def setDriver(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(5)
         print("courses page: " + self.driver.title)
 
     #Methods for web element

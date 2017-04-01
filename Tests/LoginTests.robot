@@ -24,11 +24,15 @@ Login test 1
 
 Set Webdriver
     [Tags]    test
-    App01.Set Driver            ${WEBDRIVER}
+    App01.Set Driver            ${COMMON_WEBDRIVER}
+
+Login website
+    [Tags]    test2
+    App01.Login
 
 Test method
     [Tags]    test
-    App01.Test Method7
+    App01.Test Method8
 
 Logout website
     [Tags]    test
@@ -41,6 +45,10 @@ Test method
     App01.Test Method4
     App01.Test Method5
     App01.Test Method6
+    App01.Test Method7
+
+
+
 
 *** Keywords ***
 

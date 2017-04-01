@@ -34,4 +34,5 @@ class conftest():
 
     def get_webdriver_instance(self):
         se2lib = BuiltIn().get_library_instance('Selenium2Library')
-        return se2lib._current_browser()
+        driver = se2lib._current_browser()
+        return driver

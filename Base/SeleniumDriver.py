@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from traceback import print_stack
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 #import utilities.custom_logger as cl
@@ -58,10 +59,10 @@ class SeleniumDriver(object):
             locatorType = locatorType.lower()
             byType = self.getByType(locatorType)
             element = self.driver.find_elements(byType, locator)
-            self.log.info("Element list found with locator: " + locator +
+            print("Element list found with locator: " + locator +
                           " and  locatorType: " + locatorType)
         except:
-            self.log.info("Element list not found with locator: " + locator +
+            print("Element list not found with locator: " + locator +
                           " and  locatorType: " + locatorType)
         return element
 
@@ -246,4 +247,35 @@ class SeleniumDriver(object):
                           " locatorType: " + locatorType)
         except:
             print("Cannot clear text on the element with locator: " + locator + " locatorType: " + locatorType)
+            print_stack()
+
+
+    def hoverButton(self,locator="", locatorType="id", element=None):
+        try:
+
+            if locator:  # This means if locator is not empty
+                element = self.getElement(locator, locatorType)
+
+            if element is not None:
+                actions = ActionChains(self.driver)
+                actions.move_to_element(element).perform()
+                print("Mouse Hovered on element")
+
+
+        except:
+            print("Mouse Hover failed on element")
+            print_stack()
+
+    def hoverButtonClick(self,locator="", locatorType="id", element=None):
+        try:
+
+            if locator:  # This means if locator is not empty
+                element = self.getElement(locator, locatorType)
+
+            if element is not None:
+                actions = ActionChains(self.driver)
+                actions.move_to_element(element).click().perform()
+                print("Item Clicked")
+        except:
+            print("Hover click failed on element")
             print_stack()
